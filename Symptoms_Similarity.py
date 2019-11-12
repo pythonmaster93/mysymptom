@@ -22,7 +22,7 @@ def read_glove_vecs(file):
             
     return words, word_to_vec_map
 
-words, word_to_vec_map = read_glove_vecs("C:/Users/petersde/Documents/GitHub/mysymptom/glove.6B.50d.txt")# replace file path with your location for 50-d embeddings
+words, word_to_vec_map = read_glove_vecs("C:/Users/petersde/Documents/GitHub/mysymptom/data/glove.6B.50d.txt")# replace file path with your location for 50-d embeddings
 
 # for use later on; finds the cosine similarity b/w 2 vectors
 def cosine_similarity(x, y):
@@ -100,7 +100,7 @@ sym_count['Count'] =  ct
 sym_count.to_csv('Symptom Counts.csv')
 
 # drop the symptoms that have fewer than 6 entries in the data set
-[frame.drop(i, inplace = True) for i in frame.index if counts[i] < 6]
+#[frame.drop(i, inplace = True) for i in frame.index if counts[i] < 6]
     
 # extract all the diseases present in the data set and make them into a list, for use later on
 lst = []
@@ -118,7 +118,11 @@ import random
 # run through the symptoms
 for i in frame.index.unique():
     # make a temporary list of the diseases associated with the symptom (actual context words)
-    a = list(frame.Disease.loc[i].values)
+    #print(frame.Disease.loc[i])
+  
+    
+    a = list(frame.Disease.loc[i].values)a = list(frame.Disease.loc[i].values)
+    '''
     # loop through the context words
     for j in a:
         # randomly select a disease that isn't associated with the symptom, to set as a non-context word with label 0,
@@ -253,3 +257,4 @@ for i in set(symptom):
         # remove the same symptom from the list of outputs
         if i != symp:
             print (i)
+'''
