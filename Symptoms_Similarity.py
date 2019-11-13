@@ -118,11 +118,11 @@ import random
 # run through the symptoms
 for i in frame.index.unique():
     # make a temporary list of the diseases associated with the symptom (actual context words)
-    #print(frame.Disease.loc[i])
+    print(frame.Disease.loc[i])
   
-    
-    a = list(frame.Disease.loc[i].values)a = list(frame.Disease.loc[i].values)
     '''
+    a = list(frame.Disease.loc[i].values)
+    
     # loop through the context words
     for j in a:
         # randomly select a disease that isn't associated with the symptom, to set as a non-context word with label 0,
